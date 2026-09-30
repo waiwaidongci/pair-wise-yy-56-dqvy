@@ -5,7 +5,8 @@
   "scripts": {
     "start": "ng serve --host 0.0.0.0 --port 62056",
     "dev": "ng serve --host 0.0.0.0 --port 62056",
-    "build": "ng build"
+    "build": "ng build",
+    "verify": "esbuild scripts/verify-revision-chain.ts --bundle --platform=node --format=esm --outfile=scripts/verify.mjs && node scripts/verify.mjs && rm -f scripts/verify.mjs"
   },
   "dependencies": {
     "@angular/animations": "20.2.4",

@@ -15,6 +15,7 @@ const mockGraphqlLink = new ApolloLink((operation) => new Observable((observer) 
   }, 180)
 }))
 
+// 旧台账结构：无资质版本、无返修记录，计划只有 weldIds——由 DataMigrationService 升级
 const mockData = {
   welds: [
     { id:'W-101', drawing:'SG-04-钢柱', component:'KZ-12 / 柱翼缘', joint:'全熔透坡口焊', method:'GMAW', welder:'王凯', qualification:'GB/T 9448 · 2027-06', qualificationValid:true, inspectionRatio:100, requiredRatio:100, status:'合格', x:18, y:24, repairs:0, defects:[] },
@@ -24,8 +25,8 @@ const mockData = {
     { id:'W-112', drawing:'SG-12-平台梁', component:'PL-08 / 腹板', joint:'组合焊缝', method:'GMAW', welder:'王凯', qualification:'GB/T 9448 · 2027-06', qualificationValid:true, inspectionRatio:50, requiredRatio:50, status:'已关闭', x:36, y:68, repairs:0, defects:[] },
   ],
   plans: [
-    { id:'IP-2026-0930-A', date:'2026-09-30', method:'UT + MT', weldIds:['W-105','W-106','W-108'], inspector:'陈锋', state:'待执行' },
-    { id:'IP-2026-0929-B', date:'2026-09-29', method:'UT', weldIds:['W-104'], inspector:'赵岚', state:'执行中' },
+    { id:'IP-2026-0930-A', date:'2026-09-30', method:'UT + MT', weldIds:['W-109','W-107'], inspector:'陈锋', state:'待执行' },
+    { id:'IP-2026-0929-B', date:'2026-09-29', method:'UT', weldIds:['W-101','W-104','W-112'], inspector:'赵岚', state:'执行中' },
   ],
 }
 
